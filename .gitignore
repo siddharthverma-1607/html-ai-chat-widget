@@ -1,0 +1,43 @@
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+*.tgz
+
+# TypeScript / declarations
+*.d.ts
+
+# Environment
+.env
+.env.*.local
+.env.local
+
+# Editor/IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Cache / logs
+.cache/
+.parcel-cache/
+coverage/
+logs/
+*.log
+
+# Misc
+.turbo/
+.next/
+.nuxt/

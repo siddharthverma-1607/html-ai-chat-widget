@@ -1,0 +1,40 @@
+{
+  "name": "resume-chat-widget",
+  "version": "1.0.0",
+  "description": "Drop-in AI chat widget that answers from specified HTML pages using fuzzy keyword matching.",
+  "main": "dist/chat-widget.umd.js",
+  "module": "dist/chat-widget.esm.js",
+  "browser": "dist/chat-widget.umd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/chat-widget.esm.js",
+      "require": "./dist/chat-widget.umd.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "dev": "tsup src/index.js --watch",
+    "build": "tsup src/index.js --format esm,cjs,iife",
+    "dts": "tsc -p tsconfig.dts.json",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "chatbot",
+    "widget",
+    "resume",
+    "javascript",
+    "browser",
+    "AI",
+    "fuzzy-search",
+    "qa-widget"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  }
+}

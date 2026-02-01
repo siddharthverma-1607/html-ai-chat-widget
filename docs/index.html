@@ -119,23 +119,158 @@
     }
 
     .contact-info {
-      background: #f8f9fa;
-      padding: 15px;
-      border-radius: 8px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      border-radius: 12px;
       margin: 15px 0;
+      color: white;
     }
 
     .contact-info p {
-      margin-bottom: 5px;
+      margin-bottom: 8px;
     }
 
     .contact-info a {
-      color: #667eea;
-      text-decoration: none;
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 500;
     }
 
     .contact-info a:hover {
-      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    /* Chat Widget Styling */
+    .resume-chat {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      font-family: inherit;
+    }
+
+    #chat-toggle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border: none;
+      color: white;
+      font-size: 36px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #chat-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 32px rgba(102, 126, 234, 0.6);
+    }
+
+    #chat-toggle:active {
+      transform: scale(0.95);
+    }
+
+    #chat-box {
+      position: absolute;
+      bottom: 90px;
+      right: 0;
+      width: 380px;
+      height: 500px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #chat-box > div:first-child {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      font-size: 16px;
+      font-weight: 600;
+      border-bottom: none;
+    }
+
+    #chat-log {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      background: #f8f9fa;
+    }
+
+    #chat-log > div {
+      margin-bottom: 16px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    #chat-log b {
+      color: #667eea;
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    #chat-log div div:last-child {
+      background: white;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    #chat-input {
+      border: none;
+      border-top: 2px solid #e0e0e0;
+      padding: 14px 20px !important;
+      font-size: 14px;
+      outline: none;
+      resize: none;
+      background: white;
+    }
+
+    #chat-input:focus {
+      border-top-color: #667eea;
+    }
+
+    @media (max-width: 768px) {
+      #chat-box {
+        width: 300px;
+        height: 450px;
+      }
+
+      #chat-toggle {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+      }
     }
 
     .instructions {
@@ -200,10 +335,7 @@
         <h2>📖 About This Demo</h2>
         <p>This page demonstrates the HtmlAiChatWidget in action. The chat widget in the bottom right learns from the content below.</p>
       </div>
-      <div class="demo-content">
-        <div class="instructions">
-          <strong>💡 Try asking:</strong> "What are your main skills?" or "What's your email?" or "Tell me about your experience"
-        </div>
+      <div class="demo-content">        
 
         <h3>👋 Welcome</h3>
         <p>
@@ -310,118 +442,61 @@
           <li>Cloud Computing and DevOps Best Practices</li>
         </ul>
 
-        <h3>🚀 Featured Projects</h3>
+        <h3>🚀 Featured Projects & Open Source</h3>
         
         <p>
           <strong>HtmlAiChatWidget</strong> - Open-source JavaScript widget bringing AI-powered Q&A to any website. 
-          Uses intelligent fuzzy matching to find relevant information from your pages without requiring external APIs. 
-          Built with vanilla JavaScript for maximum compatibility and minimal footprint.
+          Uses intelligent fuzzy matching without requiring external APIs. 
           <a href="https://github.com/siddharthverma-1607/html-ai-chat-widget" style="color: #667eea;" target="_blank">
-            View on GitHub →
-          </a>
+            View on GitHub
+          </a> | <a href="https://www.npmjs.com/package/html-ai-chat-widget" style="color: #667eea;" target="_blank">NPM Package</a>
         </p>
 
         <p>
-          <strong>Intelligent Document Analysis System</strong> - Developed an AI system that automatically extracts, 
-          classifies, and analyzes business documents. Uses OCR, computer vision, and NLP to process diverse document types. 
-          Achieved 95%+ accuracy and reduced manual processing time by 80%.
+          <strong>Intelligent Document Analysis System</strong> - AI system for document extraction, classification, and analysis with 95%+ accuracy.
         </p>
 
         <p>
-          <strong>Real-time Analytics Platform</strong> - Built a comprehensive analytics dashboard processing millions of events daily 
-          with sub-second response times. Implemented using Node.js, PostgreSQL, and Redis. Features real-time dashboards, 
-          custom report generation, and predictive analytics.
+          <strong>Real-time Analytics Platform</strong> - Dashboard processing millions of events daily with sub-second response times using Node.js, PostgreSQL, and Redis.
         </p>
 
         <p>
-          <strong>Recommendation Engine</strong> - Developed a collaborative filtering and content-based recommendation system 
-          for an e-commerce platform. Increased conversion rate by 25% and improved user engagement metrics significantly.
+          <strong>Recommendation Engine</strong> - Collaborative filtering system that increased e-commerce conversion by 25%.
         </p>
 
         <p>
-          <strong>Sentiment Analysis Pipeline</strong> - Built an end-to-end NLP pipeline for real-time sentiment analysis of 
-          social media data. Integrated with LSTM and transformer models for accurate sentiment classification across multiple languages.
+          <strong>Sentiment Analysis Pipeline</strong> - End-to-end NLP pipeline with LSTM and transformer models for real-time sentiment classification.
         </p>
 
         <p>
-          <strong>Time Series Forecasting Model</strong> - Created a forecasting system using ARIMA and neural networks to predict 
-          business metrics with 90%+ accuracy. Saved the company millions in resource optimization.
+          Active contributor to open-source AI projects. Maintains npm packages with thousands of weekly downloads. Published articles on Medium about AI, Python, and JavaScript development.
         </p>
 
-        <p>
-          <strong>Mobile App</strong> - Developed a cross-platform mobile app using React Native for team collaboration 
-          with offline support and real-time synchronization using Firebase and Socket.io.
-        </p>
-
-        <h3>📊 Open Source Contributions</h3>
+        <h3>✨ Specializations</h3>
         <ul>
-          <li>Active contributor to multiple open-source AI and web development projects</li>
-          <li>Maintains several npm packages with thousands of weekly downloads</li>
-          <li>Regular speaker at tech meetups and contributor to developer communities</li>
-          <li>Published articles on Medium about AI, Python, and JavaScript development</li>
-          <li>GitHub: <a href="https://github.com/siddharthverma-1607" style="color: #667eea;" target="_blank">@siddharthverma-1607</a></li>
-        </ul>
-
-        <h3>✨ Key Interests & Specializations</h3>
-        <ul>
-          <li>Artificial Intelligence and Machine Learning applications in production systems</li>
+          <li>AI/ML applications in production systems and LLMs</li>
           <li>Building scalable, performant, and maintainable code</li>
-          <li>Exploring emerging technologies (LLMs, RAG systems, generative AI)</li>
-          <li>Open-source software development and community contribution</li>
-          <li>Teaching, mentoring, and knowledge sharing with other developers</li>
-          <li>Cloud architecture and DevOps best practices</li>
-          <li>Data visualization and communicating complex ideas simply</li>
-          <li>Building products that solve real problems and improve user experience</li>
+          <li>Cloud architecture, DevOps, and infrastructure optimization</li>
+          <li>Mentoring developers and fostering collaborative culture</li>
+          <li>Building products that solve real problems</li>
         </ul>
 
-        <h3>🌟 Professional Achievements</h3>
+        <h3>🌟 Key Achievements</h3>
         <ul>
-          <li><strong>Performance:</strong> Optimized system that improved query times from 5 seconds to 200ms</li>
+          <li><strong>Performance:</strong> Optimized systems improving query times from 5s to 200ms</li>
           <li><strong>Scalability:</strong> Architected systems handling 10M+ daily active users</li>
-          <li><strong>Innovation:</strong> Pioneered use of transformers for domain-specific NLP tasks</li>
-          <li><strong>Leadership:</strong> Built and mentored high-performing teams across multiple projects</li>
+          <li><strong>Innovation:</strong> Pioneered transformers for domain-specific NLP tasks</li>
           <li><strong>Impact:</strong> Solutions deployed at scale, impacting millions of users globally</li>
-          <li><strong>Recognition:</strong> Known for delivering quality work on time and fostering collaborative team culture</li>
         </ul>
-
-        <h3>💡 Work Philosophy</h3>
-        <p>
-          I believe in writing clean, maintainable code that others can understand and build upon. 
-          I'm passionate about solving complex problems through elegant solutions and believe that great software 
-          is built through collaboration, continuous learning, and attention to detail. 
-          I value communication, transparency, and taking ownership of my work.
-        </p>
 
         <h3>📱 Contact Information</h3>
         <div class="contact-info">
-          <p><strong>Email:</strong> <a href="mailto:contact@example.com">contact@example.com</a></p>
-          <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-          <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/example" target="_blank">linkedin.com/in/example</a></p>
+          <p><strong>Email:</strong> <a href="mailto:siddharthverma.er.cse@gmail.com">siddharthverma.er.cse@gmail.com</a></p>
+          <p><strong>Phone:</strong> +91 8077158942</p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/siddharth-verma-99b54a117" target="_blank">Siddharth AI Lead LinkedIn</a></p>
           <p><strong>GitHub:</strong> <a href="https://github.com/siddharthverma-1607" target="_blank">github.com/siddharthverma-1607</a></p>
         </div>
 
-        <h3>🚀 Recent Projects</h3>
-        <p>
-          <strong>HtmlAiChatWidget:</strong> An open-source JavaScript widget that brings AI-powered Q&A to any website. 
-          It uses intelligent fuzzy matching to find relevant information from your pages.
-        </p>
-        <p>
-          <strong>Real-time Analytics Platform:</strong> Built a comprehensive analytics dashboard processing millions of events daily 
-          with sub-second response times using Node.js and PostgreSQL.
-        </p>
-        <p>
-          <strong>Mobile App:</strong> Developed a cross-platform mobile app using React Native that manages team collaboration 
-          with offline support and real-time synchronization.
-        </p>
-
-        <h3>✨ Key Interests</h3>
-        <ul>
-          <li>Building scalable and performant web applications</li>
-          <li>Exploring AI and machine learning in web technologies</li>
-          <li>Open-source software development and community contribution</li>
-          <li>Teaching and mentoring other developers</li>
-          <li>Keeping up with emerging technologies and best practices</li>
-        </ul>
       </div>
     </div>
 
@@ -485,7 +560,7 @@
           maxSentences: 2,
           title: 'Ask about this profile',
           subtitle: 'AI Assistant',
-          welcome: 'Hi! Ask me anything about this profile. Try: "What are your main skills?" or "What\'s your email?"'
+          welcome: 'Hi! Ask me anything about this profile/page."'
         });
       } else {
         console.warn('HtmlAiChatWidget not loaded. Check if dist/index.global.js is available.');

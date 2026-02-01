@@ -2,6 +2,8 @@
 
 A lightweight, plug-and-play JavaScript widget that adds a floating AI chat to any HTML page. It answers questions using only the content from specified local HTML files—no external APIs required.
 
+**[🎮 Live Demo](https://siddharthverma-1607.github.io/html-ai-chat-widget/)** – Try the widget in action!
+
 ## ✨ Features
 
 - 🔍 Client-side fuzzy search (no server, no OpenAI key needed)
@@ -34,6 +36,8 @@ A lightweight, plug-and-play JavaScript widget that adds a floating AI chat to a
 ```bash
 npm install html-ai-chat-widget
 ```
+
+View on npm: https://www.npmjs.com/package/html-ai-chat-widget
 
 ```js
 import { HtmlAiChatWidget } from 'html-ai-chat-widget';

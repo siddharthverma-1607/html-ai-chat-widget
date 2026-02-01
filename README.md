@@ -20,7 +20,7 @@ A lightweight, plug-and-play JavaScript widget that adds a floating AI chat to a
 ```html
 <script src="https://cdn.jsdelivr.net/npm/html-ai-chat-widget@1.0.0/dist/chat-widget.min.js"></script>
 <script>
-  ResumeChatWidget.setup({
+  HtmlAiChatWidget.setup({
     pages: ["/resume.html"],
     title: "Ask about this page",
     subtitle: "AI Assistant",
@@ -36,8 +36,8 @@ npm install html-ai-chat-widget
 ```
 
 ```js
-import { ResumeChatWidget } from 'html-ai-chat-widget';
-ResumeChatWidget.setup({ pages: ["/about.html"], analytics: true });
+import { HtmlAiChatWidget } from 'html-ai-chat-widget';
+HtmlAiChatWidget.setup({ pages: ["/about.html"], analytics: true });
 ```
 
 ---

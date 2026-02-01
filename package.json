@@ -1,5 +1,5 @@
 {
-  "name": "resume-chat-widget",
+  "name": "html-ai-chat-widget",
   "version": "1.0.0",
   "description": "Drop-in AI chat widget that answers from specified HTML pages using fuzzy keyword matching.",
   "main": "dist/chat-widget.umd.js",

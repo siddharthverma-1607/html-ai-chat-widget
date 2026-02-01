@@ -61,7 +61,7 @@
       SENTENCES = splitIntoSentences(texts.join(' '));
       READY = true;
     } catch (err) {
-      console.error('[ResumeChatWidget] Error loading pages:', err);
+      console.error('[HtmlAiChatWidget] Error loading pages:', err);
     }
   }
 
@@ -140,6 +140,6 @@
     loadPages(cfg.pages, cfg.selector);
   }
 
-  global.ResumeChatWidget = { setup };
+  global.HtmlAiChatWidget = { setup };
 
 })(window);

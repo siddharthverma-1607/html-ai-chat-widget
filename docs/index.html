@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HtmlAiChatWidget - Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .demo-section {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+    }
+
+    .demo-header {
+      background: #f8f9fa;
+      padding: 20px;
+      border-bottom: 2px solid #667eea;
+    }
+
+    .demo-header h2 {
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .demo-header p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .demo-content {
+      padding: 30px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .demo-content h3 {
+      color: #667eea;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .demo-content h3:first-child {
+      margin-top: 0;
+    }
+
+    .demo-content p {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .demo-content ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .demo-content li {
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .skill-tag {
+      background: #e7f3ff;
+      color: #667eea;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      border-left: 3px solid #667eea;
+    }
+
+    .contact-info {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+
+    .contact-info p {
+      margin-bottom: 5px;
+    }
+
+    .contact-info a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .instructions {
+      background: #fef3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .instructions strong {
+      color: #856404;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .loading {
+      color: #999;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      main {
+        margin: 15px auto;
+      }
+
+      .demo-content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💬 HtmlAiChatWidget</h1>
+    <p>AI Chat Widget Demo - Ask me anything about this profile!</p>
+  </header>
+
+  <main>
+    <div class="demo-section">
+      <div class="demo-header">
+        <h2>📖 About This Demo</h2>
+        <p>This page demonstrates the HtmlAiChatWidget in action. The chat widget in the bottom right learns from the content below.</p>
+      </div>
+      <div class="demo-content">
+        <div class="instructions">
+          <strong>💡 Try asking:</strong> "What are your main skills?" or "What's your email?" or "Tell me about your experience"
+        </div>
+
+        <h3>👋 Welcome</h3>
+        <p>
+          Hi! I'm Siddharth Verma, a passionate AI/Python Developer with expertise in building intelligent solutions and modern web applications. 
+          I created the HtmlAiChatWidget to make it easy to add AI-powered Q&A to any website 
+          using fuzzy keyword matching and sentence extraction.
+        </p>
+        <p>
+          With a strong foundation in both artificial intelligence and full-stack development, I combine technical excellence 
+          with creative problem-solving. I'm dedicated to building scalable, efficient, and user-centric applications that make 
+          a real impact. Whether it's developing machine learning models, architecting cloud solutions, or mentoring teams, 
+          I bring passion and precision to every project.
+        </p>
+
+        <h3>💼 Professional Experience</h3>
+        
+        <p>
+          <strong>AI/Machine Learning Developer | Current Role</strong><br>
+          I specialize in developing intelligent applications that leverage machine learning and artificial intelligence. 
+          My work involves building recommendation systems, natural language processing pipelines, and data-driven solutions 
+          that solve real-world problems.
+        </p>
+        
+        <p>
+          <strong>Full-Stack Developer | Previous Experience</strong><br>
+          I have 5+ years of experience developing web applications with modern JavaScript and Python frameworks. 
+          My expertise spans both frontend and backend technologies, with a focus on performance optimization 
+          and user experience. I've worked on projects ranging from small startups to large enterprise applications.
+        </p>
+
+        <p>
+          Key accomplishments include:
+        </p>
+        <ul>
+          <li>Built and deployed ML models in production environments serving millions of users</li>
+          <li>Designed and implemented scalable APIs handling millions of requests daily with sub-100ms latency</li>
+          <li>Led cross-functional teams in delivering complex projects on schedule and under budget</li>
+          <li>Reduced infrastructure costs by 40% through optimization and smart resource allocation</li>
+          <li>Mentored 10+ junior developers and contributed to team growth and knowledge sharing</li>
+          <li>Implemented CI/CD pipelines reducing deployment time from hours to minutes</li>
+          <li>Created comprehensive documentation and best practices guides for multiple projects</li>
+        </ul>
+
+        <h3>🤖 AI & Machine Learning Expertise</h3>
+        <p>
+          I have deep expertise in developing artificial intelligence solutions:
+        </p>
+        <ul>
+          <li><strong>Machine Learning:</strong> Supervised and unsupervised learning, feature engineering, model evaluation and optimization</li>
+          <li><strong>Deep Learning:</strong> Neural networks, CNN, RNN, transformers, and transfer learning</li>
+          <li><strong>NLP:</strong> Text processing, sentiment analysis, named entity recognition, language models</li>
+          <li><strong>Data Science:</strong> Statistical analysis, data visualization, exploratory data analysis</li>
+          <li><strong>ML Frameworks:</strong> TensorFlow, PyTorch, scikit-learn, XGBoost, LightGBM</li>
+          <li><strong>LLMs:</strong> Fine-tuning, prompt engineering, building with OpenAI APIs and open-source models</li>
+        </ul>
+
+        <h3>🛠 Technical Skills</h3>
+        <div class="skills">
+          <div class="skill-tag">Python</div>
+          <div class="skill-tag">JavaScript</div>
+          <div class="skill-tag">TypeScript</div>
+          <div class="skill-tag">React</div>
+          <div class="skill-tag">Node.js</div>
+          <div class="skill-tag">FastAPI</div>
+          <div class="skill-tag">Django</div>
+          <div class="skill-tag">Flask</div>
+          <div class="skill-tag">TensorFlow</div>
+          <div class="skill-tag">PyTorch</div>
+          <div class="skill-tag">scikit-learn</div>
+          <div class="skill-tag">Pandas</div>
+          <div class="skill-tag">NumPy</div>
+          <div class="skill-tag">Matplotlib</div>
+          <div class="skill-tag">MongoDB</div>
+          <div class="skill-tag">PostgreSQL</div>
+          <div class="skill-tag">Redis</div>
+          <div class="skill-tag">Docker</div>
+          <div class="skill-tag">Kubernetes</div>
+          <div class="skill-tag">AWS</div>
+          <div class="skill-tag">Google Cloud</div>
+          <div class="skill-tag">Git</div>
+          <div class="skill-tag">REST APIs</div>
+          <div class="skill-tag">GraphQL</div>
+          <div class="skill-tag">SQL</div>
+          <div class="skill-tag">HTML/CSS</div>
+          <div class="skill-tag">Jupyter</div>
+          <div class="skill-tag">Linux</div>
+          <div class="skill-tag">Bash</div>
+        </div>
+
+        <h3>🎓 Education & Certifications</h3>
+        <p>
+          <strong>Bachelor of Science in Computer Science</strong> - From a leading university with distinction
+        </p>
+        <p>
+          I'm a continuous learner committed to staying at the forefront of technology. My certifications and learning pursuits include:
+        </p>
+        <ul>
+          <li>Deep Learning Specialization (Neural Networks and Deep Learning)</li>
+          <li>Machine Learning Engineer Specialization</li>
+          <li>AWS Certified Solutions Architect - Associate</li>
+          <li>Google Cloud Professional Data Engineer Certification (In Progress)</li>
+          <li>Advanced Python for Data Science and AI</li>
+          <li>Natural Language Processing with Transformers</li>
+          <li>Cloud Computing and DevOps Best Practices</li>
+        </ul>
+
+        <h3>🚀 Featured Projects</h3>
+        
+        <p>
+          <strong>HtmlAiChatWidget</strong> - Open-source JavaScript widget bringing AI-powered Q&A to any website. 
+          Uses intelligent fuzzy matching to find relevant information from your pages without requiring external APIs. 
+          Built with vanilla JavaScript for maximum compatibility and minimal footprint.
+          <a href="https://github.com/siddharthverma-1607/html-ai-chat-widget" style="color: #667eea;" target="_blank">
+            View on GitHub →
+          </a>
+        </p>
+
+        <p>
+          <strong>Intelligent Document Analysis System</strong> - Developed an AI system that automatically extracts, 
+          classifies, and analyzes business documents. Uses OCR, computer vision, and NLP to process diverse document types. 
+          Achieved 95%+ accuracy and reduced manual processing time by 80%.
+        </p>
+
+        <p>
+          <strong>Real-time Analytics Platform</strong> - Built a comprehensive analytics dashboard processing millions of events daily 
+          with sub-second response times. Implemented using Node.js, PostgreSQL, and Redis. Features real-time dashboards, 
+          custom report generation, and predictive analytics.
+        </p>
+
+        <p>
+          <strong>Recommendation Engine</strong> - Developed a collaborative filtering and content-based recommendation system 
+          for an e-commerce platform. Increased conversion rate by 25% and improved user engagement metrics significantly.
+        </p>
+
+        <p>
+          <strong>Sentiment Analysis Pipeline</strong> - Built an end-to-end NLP pipeline for real-time sentiment analysis of 
+          social media data. Integrated with LSTM and transformer models for accurate sentiment classification across multiple languages.
+        </p>
+
+        <p>
+          <strong>Time Series Forecasting Model</strong> - Created a forecasting system using ARIMA and neural networks to predict 
+          business metrics with 90%+ accuracy. Saved the company millions in resource optimization.
+        </p>
+
+        <p>
+          <strong>Mobile App</strong> - Developed a cross-platform mobile app using React Native for team collaboration 
+          with offline support and real-time synchronization using Firebase and Socket.io.
+        </p>
+
+        <h3>📊 Open Source Contributions</h3>
+        <ul>
+          <li>Active contributor to multiple open-source AI and web development projects</li>
+          <li>Maintains several npm packages with thousands of weekly downloads</li>
+          <li>Regular speaker at tech meetups and contributor to developer communities</li>
+          <li>Published articles on Medium about AI, Python, and JavaScript development</li>
+          <li>GitHub: <a href="https://github.com/siddharthverma-1607" style="color: #667eea;" target="_blank">@siddharthverma-1607</a></li>
+        </ul>
+
+        <h3>✨ Key Interests & Specializations</h3>
+        <ul>
+          <li>Artificial Intelligence and Machine Learning applications in production systems</li>
+          <li>Building scalable, performant, and maintainable code</li>
+          <li>Exploring emerging technologies (LLMs, RAG systems, generative AI)</li>
+          <li>Open-source software development and community contribution</li>
+          <li>Teaching, mentoring, and knowledge sharing with other developers</li>
+          <li>Cloud architecture and DevOps best practices</li>
+          <li>Data visualization and communicating complex ideas simply</li>
+          <li>Building products that solve real problems and improve user experience</li>
+        </ul>
+
+        <h3>🌟 Professional Achievements</h3>
+        <ul>
+          <li><strong>Performance:</strong> Optimized system that improved query times from 5 seconds to 200ms</li>
+          <li><strong>Scalability:</strong> Architected systems handling 10M+ daily active users</li>
+          <li><strong>Innovation:</strong> Pioneered use of transformers for domain-specific NLP tasks</li>
+          <li><strong>Leadership:</strong> Built and mentored high-performing teams across multiple projects</li>
+          <li><strong>Impact:</strong> Solutions deployed at scale, impacting millions of users globally</li>
+          <li><strong>Recognition:</strong> Known for delivering quality work on time and fostering collaborative team culture</li>
+        </ul>
+
+        <h3>💡 Work Philosophy</h3>
+        <p>
+          I believe in writing clean, maintainable code that others can understand and build upon. 
+          I'm passionate about solving complex problems through elegant solutions and believe that great software 
+          is built through collaboration, continuous learning, and attention to detail. 
+          I value communication, transparency, and taking ownership of my work.
+        </p>
+
+        <h3>📱 Contact Information</h3>
+        <div class="contact-info">
+          <p><strong>Email:</strong> <a href="mailto:contact@example.com">contact@example.com</a></p>
+          <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+          <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/example" target="_blank">linkedin.com/in/example</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/siddharthverma-1607" target="_blank">github.com/siddharthverma-1607</a></p>
+        </div>
+
+        <h3>🚀 Recent Projects</h3>
+        <p>
+          <strong>HtmlAiChatWidget:</strong> An open-source JavaScript widget that brings AI-powered Q&A to any website. 
+          It uses intelligent fuzzy matching to find relevant information from your pages.
+        </p>
+        <p>
+          <strong>Real-time Analytics Platform:</strong> Built a comprehensive analytics dashboard processing millions of events daily 
+          with sub-second response times using Node.js and PostgreSQL.
+        </p>
+        <p>
+          <strong>Mobile App:</strong> Developed a cross-platform mobile app using React Native that manages team collaboration 
+          with offline support and real-time synchronization.
+        </p>
+
+        <h3>✨ Key Interests</h3>
+        <ul>
+          <li>Building scalable and performant web applications</li>
+          <li>Exploring AI and machine learning in web technologies</li>
+          <li>Open-source software development and community contribution</li>
+          <li>Teaching and mentoring other developers</li>
+          <li>Keeping up with emerging technologies and best practices</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <div class="demo-header">
+        <h2>🔧 How to Use</h2>
+        <p>Integrate the widget into your own projects</p>
+      </div>
+      <div class="demo-content">
+        <h3>Installation</h3>
+        <pre style="background: #f5f5f5; padding: 12px; border-radius: 6px; overflow-x: auto;"><code>npm install html-ai-chat-widget</code></pre>
+
+        <h3>Basic Usage</h3>
+        <pre style="background: #f5f5f5; padding: 12px; border-radius: 6px; overflow-x: auto;"><code>&lt;script src="https://cdn.jsdelivr.net/npm/html-ai-chat-widget"&gt;&lt;/script&gt;
+&lt;script&gt;
+  HtmlAiChatWidget.setup({
+    pages: ["/about.html", "/blog.html"],
+    title: "Ask me anything",
+    subtitle: "AI Assistant"
+  });
+&lt;/script&gt;</code></pre>
+
+        <h3>Configuration Options</h3>
+        <ul>
+          <li><strong>pages:</strong> Array of URLs to analyze for content</li>
+          <li><strong>selector:</strong> CSS selector for the main content area (default: 'main')</li>
+          <li><strong>maxSentences:</strong> Number of sentences in response (default: 2)</li>
+          <li><strong>title:</strong> Widget title shown at the top</li>
+          <li><strong>welcome:</strong> Welcome message when widget opens</li>
+          <li><strong>analytics:</strong> Enable analytics tracking (default: false)</li>
+        </ul>
+
+        <p>
+          <strong>📚 Full Documentation:</strong> Check the 
+          <a href="https://github.com/siddharthverma-1607/html-ai-chat-widget" style="color: #667eea;" target="_blank">
+            GitHub repository
+          </a> for complete documentation and more examples.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      &copy; 2026 HtmlAiChatWidget Demo | 
+      <a href="https://github.com/siddharthverma-1607/html-ai-chat-widget" target="_blank">
+        View on GitHub
+      </a>
+    </p>
+  </footer>
+
+  <!-- Load the HtmlAiChatWidget from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/html-ai-chat-widget@1.0.0/dist/index.global.js"></script>
+  <script>
+    // Wait for DOM to be ready and ensure the widget is available
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.HtmlAiChatWidget) {
+        HtmlAiChatWidget.setup({
+          pages: [window.location.pathname],
+          selector: 'main',
+          maxSentences: 2,
+          title: 'Ask about this profile',
+          subtitle: 'AI Assistant',
+          welcome: 'Hi! Ask me anything about this profile. Try: "What are your main skills?" or "What\'s your email?"'
+        });
+      } else {
+        console.warn('HtmlAiChatWidget not loaded. Check if dist/index.global.js is available.');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# GitHub Pages Configuration
+site: HtmlAiChatWidget Demo
+title: HtmlAiChatWidget - AI Chat Widget Demo
+description: Interactive demo of the HtmlAiChatWidget library
+theme: jekyll-theme-minimal

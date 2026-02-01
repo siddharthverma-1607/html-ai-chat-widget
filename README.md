@@ -37,6 +37,8 @@ A lightweight, plug-and-play JavaScript widget that adds a floating AI chat to a
 npm install html-ai-chat-widget
 ```
 
+View on npm: https://www.npmjs.com/package/html-ai-chat-widget
+
 ```js
 import { HtmlAiChatWidget } from 'html-ai-chat-widget';
 HtmlAiChatWidget.setup({ pages: ["/about.html"], analytics: true });
